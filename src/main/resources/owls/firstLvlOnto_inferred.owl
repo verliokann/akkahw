@@ -22,11 +22,16 @@
   </owl:DatatypeProperty>
   <j.0:Block rdf:about="http://vst.science.jena/OIS/source/block0">
     <j.0:hasDomain>
-      <j.0:Domain rdf:about="http://vst.science.jena/OIS/source/dom0"/>
-    </j.0:hasDomain>
-    <j.0:hasDomain>
       <j.0:Domain rdf:about="http://vst.science.jena/OIS/source/dom2"/>
     </j.0:hasDomain>
+    <j.0:hasDomain>
+      <j.0:Domain rdf:about="http://vst.science.jena/OIS/source/dom0"/>
+    </j.0:hasDomain>
+    <j.0:hasProperty>
+      <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop0_2">
+        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom0"/>
+      </j.0:Property>
+    </j.0:hasProperty>
     <j.0:hasProperty>
       <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop0_1">
         <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom2"/>
@@ -34,7 +39,7 @@
     </j.0:hasProperty>
     <j.0:hasProperty>
       <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop0_0">
-        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom0"/>
+        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom2"/>
       </j.0:Property>
     </j.0:hasProperty>
   </j.0:Block>
@@ -42,12 +47,8 @@
     <j.0:hasDomain>
       <j.0:Domain rdf:about="http://vst.science.jena/OIS/source/dom1"/>
     </j.0:hasDomain>
+    <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom2"/>
     <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom0"/>
-    <j.0:hasProperty>
-      <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop1_5">
-        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom0"/>
-      </j.0:Property>
-    </j.0:hasProperty>
     <j.0:hasProperty>
       <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop1_4">
         <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom0"/>
@@ -55,17 +56,17 @@
     </j.0:hasProperty>
     <j.0:hasProperty>
       <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop1_3">
-        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom0"/>
-      </j.0:Property>
-    </j.0:hasProperty>
-    <j.0:hasProperty>
-      <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop1_2">
         <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom1"/>
       </j.0:Property>
     </j.0:hasProperty>
     <j.0:hasProperty>
+      <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop1_2">
+        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom2"/>
+      </j.0:Property>
+    </j.0:hasProperty>
+    <j.0:hasProperty>
       <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop1_1">
-        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom0"/>
+        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom2"/>
       </j.0:Property>
     </j.0:hasProperty>
     <j.0:hasProperty>
@@ -75,16 +76,22 @@
     </j.0:hasProperty>
   </j.0:Block>
   <j.0:Block rdf:about="http://vst.science.jena/OIS/source/block2">
-    <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom2"/>
+    <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom0"/>
     <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom1"/>
+    <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom2"/>
+    <j.0:hasProperty>
+      <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop2_2">
+        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom2"/>
+      </j.0:Property>
+    </j.0:hasProperty>
     <j.0:hasProperty>
       <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop2_1">
-        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom1"/>
+        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom0"/>
       </j.0:Property>
     </j.0:hasProperty>
     <j.0:hasProperty>
       <j.0:Property rdf:about="http://vst.science.jena/OIS/source/prop2_0">
-        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom2"/>
+        <j.0:hasDomain rdf:resource="http://vst.science.jena/OIS/source/dom1"/>
       </j.0:Property>
     </j.0:hasProperty>
   </j.0:Block>
