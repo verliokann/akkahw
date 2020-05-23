@@ -88,5 +88,4 @@ public class OISOntoFactory {
 	  return model;
 	}  
 	
-	//Создание правил логического вывода
 }
