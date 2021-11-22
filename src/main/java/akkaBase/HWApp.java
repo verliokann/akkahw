@@ -13,6 +13,7 @@ public class HWApp {
 		mySystem.tell(HelloWorld.SayHello.INSTANCE);
 		mySystem.tell(HelloWorld.SayHello.INSTANCE);	
 
+		mySystem.terminate();
 	}
 
 }
