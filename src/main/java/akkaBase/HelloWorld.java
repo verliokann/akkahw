@@ -35,15 +35,16 @@ import akka.actor.typed.javadsl.Receive;
 
 public class HelloWorld extends AbstractBehavior<HelloWorld.Command> {
 
+	// Секция атрибутов, включающая описание интерфейса и реализаций сообщений, которые поддерживает актор  
 	private String message = "Hello World!!!"; // Сообщение по умолчанию
-	
+	private	int i = 1;
 	/* *************** Определяем команды (начало) *************************** 
 	   Интерфейс                                                                                   */
 	interface Command{}
 	
 	//...........   Реализация интерфейса command ..............
 	public enum SayHello implements Command{
-		INSTANCE
+		INSTANCE, STARINSTANCE 
 	}
 	
 	//...........   Реализация интерфейса command ..............
@@ -55,26 +56,35 @@ public class HelloWorld extends AbstractBehavior<HelloWorld.Command> {
 		this.newMessage = newMessage;
 	 }
 	}
+	
 	// ***************команды (конец) ***************************  
    
+	// Создание и инициализация актора ----------------------------------------
+	
 	// Конструктор 
 	private HelloWorld(ActorContext<Command> context) {
 		super(context);
 	}
 	
-	// static фабричный метод, 
+	// static фабричный метод,Behavior.setup возвращает ссылку на контекст актора 
 	public static Behavior<Command> create(){
 		return Behaviors.setup(context -> new HelloWorld(context));
 	}
 	
-		@Override
+	// Построитель блока управления реакциями на входящие сообщения
+	@Override
 	public Receive<Command> createReceive(){
 		return newReceiveBuilder()
 			   .onMessageEquals(SayHello.INSTANCE,this::onSayHello)
+			   .onMessageEquals(SayHello.STARINSTANCE,this::onSayStarHello)
 			   .onMessage(ChangeMessage.class, this::onChangeMessage)
 			   .build();
 	}
 	
+	// (конец) Создание и инициализация актора ----------------------------------------
+	
+	
+    // Реакции на входящие сообщения --------------------------------------------------
 	// Обработчики событий изменения сообщения
 	private Behavior<Command> onChangeMessage(ChangeMessage command){
 		message = command.newMessage;		
@@ -85,6 +95,12 @@ public class HelloWorld extends AbstractBehavior<HelloWorld.Command> {
 	private Behavior<Command> onSayHello(){
 		System.out.println(message);
 		return this;
+	}	
+	
+	// Обработчики событий передачи сообщения
+	private Behavior<Command> onSayStarHello(){
+		System.out.println(message+"***");
+		return this;
 	}
-		
+	// (конец) Реакции на входящие сообщения --------------------------------------------------
 }

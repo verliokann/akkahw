@@ -10,6 +10,7 @@ import akka.actor.typed.javadsl.Receive;
 
 public class HelloWorldMain extends AbstractBehavior<HelloWorldMain.SayHello> {
 
+	  // Секция описания сообщений --------------------------------------------
 	  public static class SayHello {
 	    public final String name;
 
@@ -18,12 +19,18 @@ public class HelloWorldMain extends AbstractBehavior<HelloWorldMain.SayHello> {
 	    }
 	  }
 
+	  // (конец) Секция описания сообщений --------------------------------------------
+	  
+	  
+	  // Фабричный метод для создания актора HelloWorldMain ----------------------------------------------
 	  public static Behavior<SayHello> create() {
 	    return Behaviors.setup(HelloWorldMain::new);
 	  }
 
 	  private final ActorRef<HelloWorld.Greet> greeter;
 
+	  //------------------------------------------------------------------------------
+	  //Конструктор
 	  private HelloWorldMain(ActorContext<SayHello> context) {
 	    super(context);
 	    greeter = context.spawn(HelloWorld.create(), "greeter");
@@ -35,8 +42,7 @@ public class HelloWorldMain extends AbstractBehavior<HelloWorldMain.SayHello> {
 	  }
 
 	  private Behavior<SayHello> onStart(SayHello command) {
-	    ActorRef<HelloWorld.Greeted> replyTo =
-	        getContext().spawn(HelloWorldBot.create(3), command.name);
+	    ActorRef<HelloWorld.Greeted> replyTo = getContext().spawn(HelloWorldBot.create(10), command.name);
 	    greeter.tell(new HelloWorld.Greet(command.name, replyTo));
 	    return this;
 	  }
@@ -50,5 +56,5 @@ public class HelloWorldMain extends AbstractBehavior<HelloWorldMain.SayHello> {
 				system.tell(new HelloWorldMain.SayHello("Akka"));
 				
 				system.terminate();
-		}	
+	  }	
 }
